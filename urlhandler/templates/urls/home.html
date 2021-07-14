@@ -1,0 +1,31 @@
+{% extends 'auth/nav.html' %}
+
+{% block title %} Home {% endblock title %}
+
+{% block content %}
+
+<div class="container shadow-lg text-center p-5">
+<h1 class=>Home</h1>
+    {% if error %}
+        <div class="col-md-10 mx-auto">
+            <p>The URL yor are looking for is does't exist.</p>
+            <a href="{% url 'dashboard' %}" class="btn btn-dark">Dashboard</a>
+        </div>
+    {% endif %}
+</div>
+{% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+        {{message}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endfor %}
+{% endif %}
+
+</body>
+
+</html>
+
+{% endblock %}
